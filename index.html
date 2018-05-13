@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="./Stylesheet/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Musica</title>
 </head>
 
@@ -15,51 +17,45 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">Musica</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-                    <i class="material-icons">menu</i>
-                </a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
+                   
                     <li>
-                        <a href="">Learn More</a>
-                    </li>
-                    <li>
-                        <a href="">Play Now</a>
+                        <a href="badges.html">Our playlist</a>
                     </li>
 
                 </ul>
             </div>
         </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li>
-                <a href="sass.html">Learn More</a>
-            </li>
-            <li>
-                <a href="badges.html">Play Now</a>
-            </li>
 
-        </ul>
-        <div class="parallax-container">
-            <div class="parallax">
-                <img src="./Media/adult-beautiful-blur-374703.jpg" class="responsive-img" alt="relive the music">
+        <div class="music-wrapper">
+                <form action="#">
+                        <div class="file-field input-field">
+                          <div class="btn">
+                            <span>File</span>
+                            <input type="file" multiple accept="audio/mpeg3">
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                          </div>
+                        </div>
+                      </form>
+            <div class="carousel">
+                <a class="carousel-item" href="#one!">
+                    <img src="https://lorempixel.com/250/250/nature/1">
+                </a>
+                <a class="carousel-item" href="#two!">
+                    <img src="https://lorempixel.com/250/250/nature/2">
+                </a>
+                <a class="carousel-item" href="#three!">
+                    <img src="https://lorempixel.com/250/250/nature/3">
+                </a>
+                <a class="carousel-item" href="#four!">
+                    <img src="https://lorempixel.com/250/250/nature/4">
+                </a>
+                <a class="carousel-item" href="#five!">
+                    <img src="https://lorempixel.com/250/250/nature/5">
+                </a>
             </div>
-
-        </div>
-        <div class="section white container">
-            <center>
-                <i class="material-icons center-align">&#xE405;</i>
-                <span>
-                    <h3 class="black-text  ">
-                        <em>Musica</em> By J3</h3>
-
-                </span>
-            </center>
-            <p class="black-text flow-text">
-                Welcome to Musica by J3 Relive the experience Est est consectetur occaecat qui tempor consectetur nulla velit ullamco quis
-                proident nulla non. Id culpa minim incididunt est aliqua est. Esse esse do officia proident consequat et
-                consectetur. Cillum nisi elit ea aliqua in quis incididunt excepteur velit consectetur laboris in esse non.
-                Nisi ipsum et nulla nulla cupidatat dolor sunt minim dolore ea. Mollit ea aliquip eiusmod non.
-            </p>
-
         </div>
     </header>
     <main></main>
@@ -67,7 +63,7 @@
     <div class="row">
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="./Scripts/materialize.js" type="text/javascript"></script>
 </body>
