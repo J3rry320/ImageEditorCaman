@@ -1,7 +1,8 @@
-var sidenav = document.querySelector(".sidenav");
-var optionsidenav = {
-    edge: "left",
+
+
+var elems = document.querySelectorAll('.carousel');
+var instances = M.Carousel.init(elems, options);
+var options={
+    duration:200,
+    dist:-23
 }
-var SideNavinstance = M.Sidenav.init(sidenav, optionsidenav);
-var parallax=document.querySelector(".parallax");
-var instance = M.Parallax.init(parallax);
