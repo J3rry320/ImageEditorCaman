@@ -1,44 +1,46 @@
 
-var selector = document.querySelector("audioInput");
-selector.addEventListener("change", addAudio, false)
-function addAudio(event) {
-    var files = event.target.files; // FileList object
-
-    // Loop through the FileList and render image files as thumbnails.
-    for (var i = 0, f; f = files[i]; i++) {
-
-
+function getAudioDetails(event) {
+    function reader(file) {
         var reader = new FileReader();
-
-        // Closure to capture the file information.
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // Render thumbnail.
-                var soundToPlay = new Howl(
-                    {
-                        src: theFile
-                    }
-                )
-
-            };
-        })(f);
-
-        // Read in the image file as a data URL.
-        reader.readAsDataURL(f);
-
+       var result= reader.readAsDataURL(file);
+        return result.result
     }
-    function handleDragOver(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-        evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-    }
+    var file = event.target.files[0];
+var files=reader(file)
+console.log(files)
+    var result = songToLaod.result;
+    console.log(result)
+    var sound = new Howl({
+        src: file,
+        autoplay: true,
+        html5: true,
+        volume: 0.5
+    })
+    sound.play()
 
-    // Setup the dnd listeners.
-    var dropZone = document.getElementById('drop_zone');
-    dropZone.addEventListener('dragover', handleDragOver, false);
-    dropZone.addEventListener('drop', addAudio, false);
+    console.log(sound)
+    jsmediatags.read(file, {
+        onSuccess: function (tag) {
+            console.log(tag)
+        },
+        onError: (error) => {
+            console.log(error)
+        }
 
-   
+    });
 }
+
+var selector = document.querySelector("#audioInput");
+selector.addEventListener("change", getAudioDetails, false);
+function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+var dropZone = document.getElementById('drop_zone');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', getAudioDetails, false);
+
 
 
