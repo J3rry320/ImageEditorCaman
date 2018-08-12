@@ -5,72 +5,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="./Stylesheet/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
 
-
-    <title>Musica</title>
+    <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Musica</a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <section id="landing">
+        <div class="content">
 
-                    <li>
-                        <a href="badges.html">Our playlist</a>
-                    </li>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <h3 class=" hero-text pt-5 text-center">Edit Images and Create a beautiful canvas </h3>
+                        <center class="mt-4">
+                            <button class="btn  btn-primary">
+                                Open Editor
+                            </button>
+                        </center>
 
-                </ul>
-            </div>
-        </nav>
 
-        <div class="music-wrapper">
-            <form action="#" id="drop_zone">
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>File</span>
-                        <input type="file" multiple accept="audio/mpeg3" id="audioInput">
                     </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+
+                    <div class="col-md-6 col-sm-12">
+
+                        <h3 class=" hero-text pt-5 text-center">Create Beautiful Collage and make any memory more cherished</h3>
+                        <div class="image-container"></div>
+                        <div class="input-group mb-3 mt-4 ">
+
+                            <div class="custom-file ">
+                                <input type="file" class="custom-file-input" id="inputGroupFile" accept="image/*" multiple>
+                                <label class="custom-file-label text-left" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Select 6 or More Images</label>
+                            </div>
+
+
+
+                        </div>
+                        <ul class="list-group black list-group-flush" id="fileList">
+
+
+                        </ul>
+                        <button id="confirmButton" class="btn btn-primary mt-4">Confirm Upload</button>
+
                     </div>
                 </div>
-            </form>
-            <div class="carousel">
-                <a class="carousel-item" href="#one!">
-                    <i class="material-icons" id="playButton">
-                        play_circle_outline
-                    </i>
-
-
-                </a>
-                <a class="carousel-item" href="#two!">
-                    <img src="">
-                </a>
-                <a class="carousel-item" href="#three!">
-                    <img src="https://lorempixel.com/250/250/nature/3">
-                </a>
-                <a class="carousel-item" href="#four!">
-                    <img src="https://lorempixel.com/250/250/nature/4">
-                </a>
-                <a class="carousel-item" href="#five!">
-                    <img src="https://lorempixel.com/250/250/nature/5">
-                </a>
             </div>
-        </div>
-    </header>
-    <main></main>
-    <footer></footer>
-   
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="./Scripts/materialize.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.0/jsmediatags.min.js" type="text/javascript"></script>
-    <script src="./Scripts/audioPlayer.js" type="text/javascript"></script>
+
+        </div>
+
+        <div id="basicExample">
+
+            <a href="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&h=350" download="finalImage">
+                <img src="https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1300571/pexels-photo-1300571.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1303753/pexels-photo-1303753.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1301898/pexels-photo-1301898.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1015568/pexels-photo-1015568.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/573298/pexels-photo-573298.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/884977/pexels-photo-884977.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/356147/pexels-photo-356147.jpeg?auto=compress&cs=tinysrgb&h=350" />
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1297874/pexels-photo-1297874.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/999537/pexels-photo-999537.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1299135/pexels-photo-1299135.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/5302/person-couple-love-romantic.jpg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1308314/pexels-photo-1308314.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1297365/pexels-photo-1297365.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/594421/pexels-photo-594421.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/573238/pexels-photo-573238.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1299897/pexels-photo-1299897.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/794064/pexels-photo-794064.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1167192/pexels-photo-1167192.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/207145/pexels-photo-207145.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/221212/pexels-photo-221212.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/2015/man-person-woman-face.jpg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/354305/pexels-photo-354305.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/977907/pexels-photo-977907.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/167964/pexels-photo-167964.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/432059/pexels-photo-432059.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+            <a href="#!">
+                <img src="https://images.pexels.com/photos/1305319/pexels-photo-1305319.jpeg?auto=compress&cs=tinysrgb&h=350">
+            </a>
+
+        </div>
+    </section>
+    <section class="hidden" id="collageMaker">
+        <div class="row">
+
+            <aside class="col-md-4 col-sm-12 mt-5">
+                <form class="ml-3 mt-2">
+                    <div class="form-group">
+                        <label for="height">Height</label>
+                        <input type="range" value="200" min="100" max="650" class="form-control-range" id="height">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="margin">Margin</label>
+                        <input type="range" value="0" min="0" max="10" class="form-control-range" id="margin">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="border">Border</label>
+                        <input type="range" value="0" min="0" max="10" class="form-control-range" id="border">
+                    </div>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" value="true" id="defaultCheck">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Randomize Images
+                        </label>
+                    </div>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="justify" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Justify
+                        </label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="nojustify">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Do Not Justify (Not Prefered)
+                        </label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="hide">
+                        <label class="form-check-label" for="exampleRadios3">
+                            Hide (Not Prefered)
+                        </label>
+                    </div>
+                </form>
+            </aside>
+            <div class="col-md-8 col-sm-12 mt-5">
+
+                <canvas id="url">
+
+                </canvas>
+                <a>
+                    <div class="finalImage mt-2">
+
+                    </div>
+                </a>
+
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+    <script src="./Scripts/justified.js"></script>
+    <script src="./Scripts/materialize.js"></script>
 </body>
 
 </html>
