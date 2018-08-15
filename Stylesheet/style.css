@@ -1,31 +1,57 @@
+@import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
 #basicExample {
     position: fixed;
     z-index: -3;
 }
-.centered{
+canvas{
+    margin:auto;
+    width: 100%;
+
+}
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+
+.caption {
+    display: block;
+}
+.centered {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    padding: 5%;
+    transform: translate(-50%, -50%)
 }
-.image-container{
+#sticky-sidebar{
+    min-height: 100vh;
+}
+
+.image-container {
     position: relative;
 }
-.photo-container{
+
+.big-font {
+    font-size: 24px;
+}
+
+.photo-container {
     float: left;
     position: relative;
     overflow: hidden;
 }
-.image-thumb{
+
+.image-thumb {
     position: relative;
     background-color: #eee;
 }
-body{
+
+body {
     height: 100%;
     overflow-x: hidden
 }
+
 #basicExample>a>img {
     filter: blur(.23px)
 }
@@ -41,12 +67,23 @@ body{
     width: 100%;
     padding: 5%;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
-.black{
-    color:#000;
+
+.black {
+    color: #000;
 }
-.vl{
-    border-left:3px solid #fff
+
+#sticky-sidebar {
+    min-height: 100vh;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25%;
 }

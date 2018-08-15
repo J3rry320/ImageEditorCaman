@@ -12,34 +12,239 @@
     <title>Editor</title>
 </head>
 
-<body style="height: 100vh" class="bg-dark">
-    <div>
-        <div class="row">
-            <div class="col-md-12 ">
-                <div class="input-group mb-3 col-md-6 offset-md-3 mt-5">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="File" accept="image/*">
-                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
+<body class="bg-dark">
 
-                        <button type="button" class=" btn btn-primary" id="Upload">Upload</button>
+    <main class="">
+        <section class="container">
+            <div class="row" id="step1">
+                <div class="col-md-12">
+                    <div class="input-group mb-3  mt-5">
+
+                        <form id="fileform" class="custom-file">
+                            <input type="file" class="custom-file-input" id="File" accept="image/*">
+                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                        </form>
+                        <div class="input-group-append">
+
+                            <button type="button" class=" btn btn-primary" id="Upload">Upload</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <section id="step2" class="hidden">
+            <div class="row ">
+                <div class="col-md-12 col-sm-6 mt-5" id="Cropper">
+                    <div id="target"></div>
+
+
+
+                </div>
+                <div class="col-md-12" id="buttonInStep2">
+                    <center>
+
+                        <button type="button" class="btn btn-outline-light ml-2" id="Rotate">
+                            <i class="fas fa-undo big-font"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-light ml-2" id="Corp">
+                            <i class="fas fa-check big-font"></i>
+                        </button>
+
+                    </center>
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="step3" class="hidden">
+
+            <div class="container">
+                <div class="row">
+
+
+
+                    <div class="col-sm-6">
+
+                        <canvas class="mt-2 ml-3" id="Editor"></canvas>
+
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <canvas class="mt-2 ml-1" id="Retouched"></canvas>
+
+
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <center>
+                            <button type="button" class="btn btn-outline-light ml-2" id="Corp">
+                                <i class="fas fa-crop-alt  big-font"></i>
+                            </button>
+                            <button class="btn btn-outline-light pl-1" id="Download">
+                                <i class="fas fa-download big-font"></i>
+                            </button>
+                            <button class="btn btn-outline-light  pl-1" id="Undo">
+                                <i class="fas fa-undo big-font"></i>
+                            </button>
+                            <button class="btn btn-outline-light  pl-1" id="Filter">
+                                <i class="fas fa-filter big-font"></i>
+                            </button>
+                            <button class="btn btn-outline-light  pl-1" id="Settings">
+                                <i class="fas fa-sliders-h big-font"></i>
+                            </button>
+
+                        </center>
+                    </div>
+
+                    <div class="col-sm-12">
+
+
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h3 class="text-center">Edit Your Image To Perfection</h3>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                                    <li class="nav-item">
+                                        <a class="btn btn-outline-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                            <i class="fas fa-filter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ml-3">
+                                        <a class="btn-outline-dark btn " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                            <i class="fas fa-sliders-h big-font"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+
+
+
+
+                                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                                        <div class="row">
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-info btn-block" id="sinCity">
+                                                    Sin City
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-warning btn-block" id="Lomo">
+                                                    Lomo
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-primary btn-block" id="herMajesty">
+                                                    Her Majesty
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-secondary btn-block" id="Vntage">
+                                                    Vintage
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-info btn-block" id="Grungy">
+                                                    Grungy
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-warning btn-block" id="Nostalgia">
+                                                    Nostalgia
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-primary btn-block" id="CrossProcess">
+                                                    Cross Process
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <button class="btn-secondary btn-block" id="HazyDays">
+                                                    Hazy Days
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <form class="row">
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Brightness">Brightness</label>
+                                                <input type="range" min="-100" max="100" value="0" class="form-control-range" id="Brightness">
+                                            </div>
+
+                                            <div class="form-group col-6 mb-2 ">
+                                                <label for="Contrast">Contrast</label>
+                                                <input type="range" min="-100" max="100" value="0" class="form-control-range" id="Contrast">
+                                            </div>
+                                            <div class="form-group col-6 mb-2 ">
+                                                <label for="Vibrance">Vibrance</label>
+                                                <input type="range" max="100" min="-100" value="0" class="form-control-range" id="Vibrance">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Saturation">Saturation</label>
+                                                <input type="range" max="100" min="-100" value="0" class="form-control-range" id="Saturation">
+                                            </div>
+                                            <div class="form-group col-6 mb-2 ">
+                                                <label for="Exposure">Exposure</label>
+                                                <input type="range" max="100" min="-100" value="0" class="form-control-range" id="Exposure">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Hue">Hue</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="Hue">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Gamma">Gamma</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="Gamma">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Clip">Clip</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="Clip">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="stackBlur">Blur</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="stackBlur">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Sepia">Sepia</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="Sepia">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Noise">Noise</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="Noise">
+                                            </div>
+                                            <div class="form-group col-6 mb-2">
+                                                <label for="Sharpen">Sharpen</label>
+                                                <input type="range" max="100" min="0" value="0" class="form-control-range" id="Sharpen">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
 
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-6">
-                <img src="" class="img-fluid" id="target">
-            </div>
-            <button id="Corp" class="btn btn-primary">Corp</button>
-            <img id="resultImage" src="">
 
 
-        </div>
-    </div>
+
+    </main>
+
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

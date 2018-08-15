@@ -1,5 +1,6 @@
 $(document).ready(() => {
 
+
     $("#confirmButton").hide()
     $("#inputGroupFile").change((e) => {
         let resultArr = []
