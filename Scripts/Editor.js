@@ -1,7 +1,7 @@
 $(document).ready(() => {
     $('[data-toggle="tooltip"]').tooltip()
 
-    const Cropper = (target, options) => {
+    const Cropper = (target, option) => {
 
         return $(`#${target}`).croppie({
             viewport: {
@@ -10,8 +10,8 @@ $(document).ready(() => {
             },
             customClass: "img-fluid",
             boundary: {
-                width: options.width,
-                height: options.height
+                width: option.width,
+                height: option.height,
             },
             showZoomer: true,
             enableResize: true,
@@ -41,13 +41,13 @@ $(document).ready(() => {
             Images.src = e.target.result;
 
             var name = files.name;
-            var patt1=/\.[0-9a-z]+$/i;
-            let extension=name.match(patt1)
-            let nameToDisplay=name.slice(0,7)
+            var patt1 = /\.[0-9a-z]+$/i;
+            let extension = name.match(patt1)
+            let nameToDisplay = name.slice(0, 7)
 
 
 
-            $(".custom-file-label").text(nameToDisplay+extension)
+            $(".custom-file-label").text(nameToDisplay + extension)
 
         }
         reader.onerror = function (event) {
@@ -71,15 +71,15 @@ $(document).ready(() => {
             $("#step1").hide()
             $("#step2").removeClass("hidden")
             let editor = Cropper("target", {
-                width: width / 1.5,
-                height: height / 2,
-
+                width: width / 1.25,
+                height: height / 2
             })
             editor.croppie('bind', {
                 url: Images.src,
                 orientation: 1,
 
             });
+            editor.croppie("setZoom", 30.21)
 
             $("#undoRotate").bind("click", () => {
                 Rotate(editor, {
@@ -90,62 +90,72 @@ $(document).ready(() => {
             $("#Filter").bind("click", () => {
                 $("#EditorPane").hide();
                 $("#filterTab").show();
+                $('html,body').animate({
+                    scrollTop: $("#filterTab").offset().top
+                }, 1000);
             })
             $("#Settings").bind("click", () => {
                 $("#EditorPane").hide();
-                $("#settingsPane").show()
+                $("#settingsPane").show();
+                $('html,body').animate({
+                    scrollTop: $("#settingsPane").offset().top
+                }, 1000);
             })
             $("#closeSettings").bind("click", () => {
                 $("#EditorPane").show();
-                $("#settingsPane").hide()
+                $("#settingsPane").hide();
+                $('html,body').animate({
+                    scrollTop: $("#EditorPane").offset().top
+                }, 1000);
             })
             $("#closeFilter").bind("click", () => {
                 $("#EditorPane").show();
-                $("#filterTab").hide()
+                $("#filterTab").hide();
+                $('html,body').animate({
+                    scrollTop: $("#EditorPane").offset().top
+                }, 1000);
             })
             //TODO Cannot Initialize Croppy Again Do It Mannualy
-           /* $("#CorpAgain").bind("click", () => {
-                editor.croppie("destroy")
-                $("#EditorPane").hide();
-                let canvas = $("#Retouched").get(0);
-                let newImage = new Image()
-                newImage.src = canvas.toDataURL()
-                let width = null;
-                let height = null;
-                newImage.onload = function () {
-                    width = newImage.width;
-                    height = newImage.height;
-                }
+            /* $("#CorpAgain").bind("click", () => {
+                 editor.croppie("destroy")
+                 $("#EditorPane").hide();
+                 let canvas = $("#Retouched").get(0);
+                 let newImage = new Image()
+                 newImage.src = canvas.toDataURL()
+                 let width = null;
+                 let height = null;
+                 newImage.onload = function () {
+                     width = newImage.width;
+                     height = newImage.height;
+                 }
 
-                let Neweditor = Cropper("Retouched", {
-                    width: width,
-                    height: height
-                })
-                Neweditor.croppie('bind', {
-                    url: newImage.src,
-                    orientation: 1,
+                 let Neweditor = Cropper("Retouched", {
+                     width: width,
+                     height: height
+                 })
+                 Neweditor.croppie('bind', {
+                     url: newImage.src,
+                     orientation: 1,
 
-                });
-                Neweditor.croppie('result', 'base64', "original", "jpeg").then((html) => {
-                    $("#EditorPane").show();
-                    Editor("#Editor", html, function () {
+                 });
+                 Neweditor.croppie('result', 'base64', "original", "jpeg").then((html) => {
+                     $("#EditorPane").show();
+                     Editor("#Editor", html, function () {
 
-                        this.render();
-
-
-                    })
-                    Editor("#Retouched", html, function () {
-
-                        this.render();
+                         this.render();
 
 
-                    })
-                })
+                     })
+                     Editor("#Retouched", html, function () {
 
-            })*/
-            $("#Download").bind("click", () => {
+                         this.render();
 
-            })
+
+                     })
+                 })
+
+             })*/
+
 
             //Will be improved
             $("#Rotate").bind("click", () => {
@@ -168,9 +178,17 @@ $(document).ready(() => {
                     editor.
                     croppie("destroy")
                     $(".Undo").bind("click", () => {
-                        Editor("#Retouched", html, function () {
-                            this.revert().render()
+                        $(".Undo").hide();
+                        $(".alert-undo").show()
+                        $(".UNDO").bind("click", (e) => {
+                            e.preventDefault();
+                            Editor("#Retouched", html, function () {
+                                this.revert().render()
+                            })
+                            $(".alert-undo").hide();
+                            $(".Undo").show();
                         })
+
                     })
                     Editor("#Editor", html, function () {
 
@@ -184,6 +202,18 @@ $(document).ready(() => {
 
 
                     })
+                    $("#Download").bind("click", () => {
+                        Editor("#Retouched",html, function() {
+                            this.render(function () {
+                                var image = this.toBase64();
+                                $("#Download").attr("href", image);
+
+
+                            });
+                            $("#Download").removeAttr("href");
+                        })
+
+                    })
 
                     editor.croppie("destroy")
                     $("#sinCity").bind("click", () => {
@@ -193,6 +223,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#Lomo").bind("click", () => {
                         Editor("#Retouched", html, function () {
@@ -201,6 +234,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#herMajesty").bind("click", () => {
                         Editor("#Retouched", html, function () {
@@ -209,6 +245,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#Vintage").bind("click", () => {
                         Editor("#Retouched", html, function () {
@@ -225,6 +264,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#Nostalgia").bind("click", () => {
                         Editor("#Retouched", html, function () {
@@ -233,6 +275,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#CrossProcess").bind("click", () => {
                         Editor("#Retouched", html, function () {
@@ -241,6 +286,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#HazyDays").bind("click", () => {
                         Editor("#Retouched", html, function () {
@@ -249,6 +297,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     })
                     $("#Brightness").change(() => {
 
@@ -258,6 +309,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Clip").change(() => {
@@ -268,6 +322,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Gamma").change(() => {
@@ -278,6 +335,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Hue").change(() => {
@@ -288,6 +348,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Noise").change(() => {
@@ -298,6 +361,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Sepia").change(() => {
@@ -308,6 +374,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Sharpen").change(() => {
@@ -318,6 +387,9 @@ $(document).ready(() => {
 
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Contrast").change(() => {
@@ -327,6 +399,9 @@ $(document).ready(() => {
                             this.contrast($("#Contrast").val()).render()
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
 
                     });
                     $("#Vibrance").change(() => {
@@ -336,6 +411,9 @@ $(document).ready(() => {
                             this.vibrance($("#Vibrance").val()).render()
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     });
                     $("#stackBlur").change(() => {
 
@@ -344,6 +422,9 @@ $(document).ready(() => {
                             this.stackBlur($("#stackBlur").val()).render()
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     });
                     $("#Saturation").change(() => {
 
@@ -352,6 +433,9 @@ $(document).ready(() => {
                             this.saturation($("#Saturation").val()).render()
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     });
                     $("#Exposure").change(() => {
 
@@ -360,6 +444,9 @@ $(document).ready(() => {
                             this.exposure($("#Exposure").val()).render()
 
                         });
+                        $('html,body').animate({
+                            scrollTop: $("#Retouched,#Editor").offset().top
+                        }, 1000);
                     });
 
 

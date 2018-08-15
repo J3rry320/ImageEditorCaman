@@ -13,11 +13,22 @@
 </head>
 
 <body class="bg-dark">
+    <header >
+
+
+
+      <!-- As a heading -->
+      <nav class="navbar navbar-dark bg-dark">
+
+        <span class="navbar-brand mb-0 h1">Image Editor</span>
+      </nav>
+    </header>
 
     <main class="">
         <section class="container">
             <div class="row content" id="step1">
                 <div class="col-md-12">
+                    <h1 class="text-center my-text mb-5">Upload Your Images And Make It Awesome</h1>
                     <div class="input-group mb-3  mt-5">
 
                         <form id="fileform" class="custom-file">
@@ -78,25 +89,33 @@
 
 
                     <br>
-                    <div class="col-md-12 col-sm-6 mt-2 mb-2 bg-light px-1 py-1" id="EditorPane">
+                    <div class="container col-md-12 col-sm-6 mt-2 mb-3 bg-light px-3 py-3" id="EditorPane">
+                        <div class="alert alert-danger hidden alert-dismissible fade show alert-undo" role="alert">
+                            <strong>Holy guacamole!Everything You Have Done Will Be Reverted</strong> The App Is Being Updated Sorry
+                            For The Inconvenience.
+                            <a href="#!" class="alert-link UNDO">I Understand Let Me Do It</a>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         <center>
                             <!--    <button type="button" class="btn btn-dark ml-2" id="CorpAgain">
                                 <i class="fas fa-crop-alt "></i> Corp
                             </button>-->
 
 
-                            <button class="btn btn-dark  ml-2" id="Filter">
+                            <button class="btn btn-outline-dark  ml-2" id="Filter">
                                 <i class="fas fa-filter "></i> Filters
                             </button>
-                            <button class="btn btn-dark  ml-2" id="Settings">
+                            <button class="btn btn-outline-dark  ml-2" id="Settings">
                                 <i class="fas fa-sliders-h "></i> Settings
                             </button>
-                            <button class="btn btn-danger Undo ml-2">
+                            <button class="btn btn-outline-danger Undo ml-2">
                                 <i class="fas fa-undo t"></i> Undo All
                             </button>
-                            <button class="btn btn-success ml-2" id="Download">
+                            <a class="btn btn-success  ml-2" id="Download" download="Retouched">
                                 <i class="fas fa-download "></i> Download Image
-                            </button>
+                            </a>
 
                         </center>
                     </div>
@@ -115,15 +134,23 @@
                     <div class="col-md-12 col-sm-10">
                         <div class="jumbotron jumbotron-fluid hidden" id="filterTab">
                             <div class="container">
-                                <button class="btn-outline-dark btn float-right" id="closeFilter">
-                                    <i class="far fa-window-close"></i>
-                                </button>
+
+                                    <i class="fas fa-window-close big-font float-right" id="closeFilter"></i>
+
                                 <h3 class="text-center display-4">Apply The Perfect Filter</h3>
 
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
+                                        <div class="alert alert-danger hidden alert-dismissible fade show alert-undo" role="alert">
+                                            <strong>Holy guacamole!Everything You Have Done Will Be Reverted</strong> The App Is
+                                            Being Updated Sorry For The Inconvenience.
+                                            <a href="#!" class="alert-link UNDO">I Understand Let Me Do It</a>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
                                         <center>
-                                            <button type="button" class="btn btn-danger Undo ml-2">
+                                            <button type="button" class="btn  btn-outline-danger Undo ml-2">
                                                 <i class="fas fa-undo big-font"></i> Undo All
                                             </button>
                                         </center>
@@ -131,42 +158,42 @@
                                     </div>
 
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-info btn-block" id="sinCity">
+                                        <button class="btn-outline-dark btn btn-block" id="sinCity">
                                             Sin City
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-warning btn-block" id="Lomo">
+                                        <button class="btn-outline-dark btn btn-block" id="Lomo">
                                             Lomo
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-primary btn-block" id="herMajesty">
+                                        <button class="btn-outline-dark btn-block btn" id="herMajesty">
                                             Her Majesty
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-secondary btn-block" id="Vntage">
+                                        <button class="btn-outline-dark btn-block btn" id="Vintage">
                                             Vintage
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-info btn-block" id="Grungy">
+                                        <button class="btn-outline-dark btn btn-block" id="Grungy">
                                             Grungy
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-warning btn-block" id="Nostalgia">
+                                        <button class="btn-outline-dark btn-block btn" id="Nostalgia">
                                             Nostalgia
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-primary btn-block" id="CrossProcess">
+                                        <button class="btn-outline-dark btn-block btn" id="CrossProcess">
                                             Cross Process
                                         </button>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <button class="btn-secondary btn-block" id="HazyDays">
+                                        <button class="btn-outline-dark btn-block btn" id="HazyDays">
                                             Hazy Days
                                         </button>
                                     </div>
@@ -180,15 +207,23 @@
 
                         <div class="jumbotron jumbotron-fluid">
                             <div class="container">
-                                <button class="btn-outline-dark btn float-right" id="closeSettings">
-                                    <i class="far fa-window-close"></i>
-                                </button>
+
+                                    <i id="closeSettings" class="far big-font fa-window-close float-right"></i>
+
                                 <h3 class="text-center display-4">
                                     Edit Your Image Perfectly
                                 </h3>
                                 <div class="col-md-12 mb-3">
+                                    <div class="alert alert-danger hidden alert-dismissible fade show alert-undo" role="alert">
+                                        <strong>Holy guacamole!Everything You Have Done Will Be Reverted</strong> The App Is Being
+                                        Updated Sorry For The Inconvenience.
+                                        <a href="#!" class="alert-link UNDO">I Understand Let Me Do It</a>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
                                     <center>
-                                        <button type="button" class="btn btn-danger Undo ml-2">
+                                        <button type="button" class="btn  btn-outline-danger Undo ml-2">
                                             <i class="fas fa-undo big-font"></i> Undo
                                         </button>
                                     </center>
@@ -266,8 +301,8 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"
+       ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
