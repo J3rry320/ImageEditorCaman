@@ -1,50 +1,90 @@
 $(document).ready(() => {
     $('[data-toggle="tooltip"]').tooltip()
 
+    const Cropper = (target, options) => {
+
+        return $(`#${target}`).croppie({
+            viewport: {
+                width: 300,
+                height: 150,
+            },
+            customClass: "img-fluid",
+            boundary: {
+                width: options.width,
+                height: options.height
+            },
+            showZoomer: true,
+            enableResize: true,
+            enableOrientation: true,
+            mouseWheelZoom: false
+        });
+
+    }
+
+    const Rotate = (target, value) => {
+        target.croppie('bind', {
+            url: value.src,
+            orientation: value.value,
+
+        });
+    }
+    const Editor = (selector, html, callback) => {
+        Caman(selector, html, callback)
+    }
 
 
     $("#File").change((e) => {
-        let fileToEdit = null;
+        let Images = new Image()
+        let height = null;
+        let width = null
+
+        Images.onload = function () {
+            height = Images.height;
+            width = Images.width
+        }
         let files = e.target.files[0]
-        var name = files.name;
-        var reader = new FileReader();
+
+        let reader = new FileReader();
         reader.onload = function (e) {
+            Images.src = e.target.result;
 
             fileToEdit = e.target.result;
-
+            var name = files.name;
             $(".custom-file-label").text(name)
 
         }
         reader.onerror = function (event) {
             alert("ERROR: " + event.target.error.code);
         };
-        reader.readAsDataURL(files);
+        if (files) reader.readAsDataURL(files);
+        else alert("Error Loading The Files")
+
 
 
         $("#Upload").bind("click", () => {
             $("#step1").hide()
             $("#step2").removeClass("hidden")
-            let editor = $('#target').croppie({
-                viewport: {
-                    width: 300,
-                    height: 150,
-                },
-                customClass: "img-fluid",
-                boundary: {
-                    width: 400,
-                    height: 200
-                },
-                showZoomer: true,
-                enableResize: true,
-                enableOrientation: true
-            });
+            let editor = Cropper("target", {
+                width: width / 1.5,
+                height: height / 2,
+
+            })
             editor.croppie('bind', {
-                url: fileToEdit,
+                url: Images.src,
                 orientation: 1,
 
             });
+            $("#Rotate").bind("click", () => {
 
+                let valueToPass=Math.floor(Math.random()*8)
+                if(valueToPass==0)valueToPass==1
+                console.log(valueToPass)
+                Rotate(editor,{
+                    src:Images.src,
+                    value:valueToPass
+                })
 
+            })
             $("#Corp").bind("click", () => {
 
                 $("#buttonInStep2").addClass("hidden")
@@ -249,9 +289,7 @@ $(document).ready(() => {
 
             })
 
-            const Editor = (selector, html, callback) => {
-                Caman(selector, html, callback)
-            }
+
 
         })
 
