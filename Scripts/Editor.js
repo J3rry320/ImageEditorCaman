@@ -1,11 +1,11 @@
 $(document).ready(() => {
-    $('[data-toggle="tooltip"]').tooltip()
+
 
     const Cropper = (target, option) => {
 
         return $(`#${target}`).croppie({
             viewport: {
-                width:200,
+                width: 200,
                 height: 200,
             },
             customClass: "img-fluid",
@@ -31,12 +31,12 @@ $(document).ready(() => {
     const Editor = (selector, html, callback) => {
         Caman(selector, html, callback)
     }
-
+    let Images = new Image()
+    let reader = new FileReader();
 
     $("#File").change((e) => {
         let files = e.target.files[0]
-        let Images = new Image()
-        let reader = new FileReader();
+
         reader.onload = function (e) {
             Images.src = e.target.result;
 
@@ -79,7 +79,7 @@ $(document).ready(() => {
                 orientation: 1,
 
             });
-            editor.croppie("setZoom", 30.21)
+
 
             $("#undoRotate").bind("click", () => {
                 Rotate(editor, {
@@ -202,12 +202,23 @@ $(document).ready(() => {
 
 
                     })
+                    //Download Button
                     $("#Download").bind("click", () => {
-                        Editor("#Retouched",html, function() {
-                            this.render(function () {
-                                var image = this.toBase64();
-                                $("#Download").attr("href", image);
+                        let ImagetoReturn = null;
 
+                        Editor("#Retouched", html, function () {
+                            this.render(function () {
+                                ImagetoReturn = this.toBase64();
+                                let b = $('<a></a>')
+                                b.attr("href", ImagetoReturn)
+                                b.attr("download", "Refined")
+                                b.addClass("finalDownload")
+                                $("#step3").append(b)
+
+
+                                b[0].click()
+                                b.remove();
+                                location.reload(false)
 
                             });
 
