@@ -5,8 +5,8 @@ $(document).ready(() => {
 
         return $(`#${target}`).croppie({
             viewport: {
-                width: 300,
-                height: 150,
+                width:200,
+                height: 200,
             },
             customClass: "img-fluid",
             boundary: {
@@ -210,7 +210,7 @@ $(document).ready(() => {
 
 
                             });
-                            $("#Download").removeAttr("href");
+
                         })
 
                     })
